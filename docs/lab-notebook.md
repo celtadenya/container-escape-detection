@@ -37,3 +37,13 @@
 - Stop cyberdelia containers for a clean host.
 - Build harness skeleton: reset -> start detector -> run one procedure
   -> capture alert by container_id -> write one CSV row.
+
+### Tetragon (same session)
+- Image: quay.io/cilium/tetragon:v1.6.0 (standalone Docker; --pid=host --cgroupns=host --privileged; BTF mounted)
+- Policy: examples/quickstart/file_monitoring.yaml (a published example policy)
+- Test: docker run --rm alpine cat /etc/shadow -> DETECTED (process /bin/cat + read events on /etc/shadow)
+- Key finding: detection semantics differ between tools. Falco = one discrete named alert;
+  Tetragon = event stream (process lineage + file reads) filtered by policy.
+  -> Methodology must define per-tool what counts as a detection / partial detection.
+- Host noise: Kali desktop (xfce4-panel-genmon-vpnip.sh) spawns processes ~1/sec, flooding events.
+  Reinforces: quiet the host + attribute by container_id + time window.
