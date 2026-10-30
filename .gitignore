@@ -1,0 +1,19 @@
+# secrets
+.env
+*.key
+*.pem
+secrets/
+# VM / large files
+*.qcow2
+*.img
+*.iso
+*.utm/
+# raw logs (keep processed CSVs only)
+data/raw/
+*.log
+# python / notebooks
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+# mac
+.DS_Store
