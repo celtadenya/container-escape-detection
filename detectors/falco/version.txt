@@ -1,0 +1,9 @@
+Falco version: 0.45.2
+Libs version:  0.26.1
+Plugin API:    3.12.0
+Engine:        0.65.0
+Driver:
+  API version:    11.0.0
+  Schema version: 4.3.0
+  Default driver: 11.0.1+driver
+Docker version 27.5.1+dfsg4, build cab968b3
